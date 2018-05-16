@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [CompleteContract]">
+  <test name="ContractCreation(failed)">
+    <classes>
+      <class name="TestCases.CreateContractTest">
+        <methods>
+          <include name="ContractEntry"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- TestCases.CreateContractTest -->
+      <class name="TestCases.ContractDraftToCompleteTestCase">
+        <methods>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- TestCases.ContractDraftToCompleteTestCase -->
+    </classes>
+  </test> <!-- ContractCreation(failed) -->
+</suite> <!-- Failed suite [CompleteContract] -->
