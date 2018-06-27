@@ -18,7 +18,7 @@ public class VerifyLoginPage {
 		
 		BrowserFactory br = new BrowserFactory();
 		
-         WebDriver driver = br.getBrowser("Chrome");
+         WebDriver driver = br.getBrowser("IE");
 		
          String url="url1";
 	        

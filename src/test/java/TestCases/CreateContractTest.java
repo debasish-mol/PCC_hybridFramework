@@ -35,9 +35,9 @@ public class CreateContractTest {
 		
 		BrowserFactory br = new BrowserFactory();
 		
-        driver = br.getBrowser("Chrome");
+        driver = br.getBrowser("IE");
         
-        logger.log(LogStatus.INFO,"Browser invoked");
+        logger.log(LogStatus.INFO,"Browser is invoked");
         
 		String url = "contUrl";
 		
@@ -66,25 +66,38 @@ public class CreateContractTest {
 		// Contract type = Transport Contract / Quotation / Spot Rate Guidelines Agreement with Brokers Agreement with Broker Customers
 		
 		
-		Contpg.ContractType("Transport Contract");
+		//Contpg.ContractType("Transport Contract");
+		
+		Contpg.ContractType(DataProviderFactory.getExcel().getStringData("ContractData",0,1));
 		
 		logger.log(LogStatus.INFO,"Contract type is selected");
 		
 		Thread.sleep(3000);
 		
-		Contpg.EnterContractName("TransportContract");
+		//Contpg.EnterContractName("TransportContract");
+		
+		Contpg.EnterContractName(DataProviderFactory.getExcel().getStringData("ContractData",1,1));
+				
 		
 		logger.log(LogStatus.INFO,"Entered Contract name");
 		
-		Contpg.EnterMainCustomer("5117553"); // Entering Customer Code
+		//Contpg.EnterMainCustomer("5117553"); // Entering Customer Code
+		
+		Contpg.EnterMainCustomer(DataProviderFactory.getExcel().getNumberData("ContractData",2,1)); // Entering Customer Code
 		
 		logger.log(LogStatus.INFO,"Entered Customer code");
 		
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		
-		Contpg.EnterEffectivedate("24/04/2018");
+		//Contpg.EnterEffectivedate("24/04/2018");
 		
-		Contpg.EnterExpiryDate("24/04/2019");
+		Contpg.EnterEffectivedate(DataProviderFactory.getExcel().getDateData("ContractData", 3,1));
+		
+		
+		//Contpg.EnterExpiryDate("24/04/2019");
+		
+		Contpg.EnterExpiryDate(DataProviderFactory.getExcel().getDateData("ContractData", 4,1));
+		
 		
 		Contpg.ClickOnFirstPageSave();
 		
@@ -92,15 +105,19 @@ public class CreateContractTest {
 		
 		logger.log(LogStatus.INFO,logger.addScreenCapture(Helper.captureScreenshot(driver,"FirstPageContract")));
 		
-	    Thread.sleep(3000);
+	    Thread.sleep(5000);
 		
 		Contpg.ToCheckAddLpDpVisibility();   // Dynamic Wait or Explicit Wait
 		
 		Contpg.PrintContNo();  // Printing Contact No & Writting to excell output file - AppData.xlsx
 		
-		Contpg.EnterContLoadPort("SGSINPP");
+		//Contpg.EnterContLoadPort("SGSINPP");
 		
-		Contpg.EnterContDisPort("HKHKGPC");
+		Contpg.EnterContLoadPort((DataProviderFactory.getExcel().getStringData("ContractData",5,1)));
+		
+		//Contpg.EnterContDisPort("HKHKGPC");
+		
+		Contpg.EnterContDisPort((DataProviderFactory.getExcel().getStringData("ContractData",6,1)));
 		
 		logger.log(LogStatus.INFO,"Entered Load Port & Discharge port");
 		
@@ -108,7 +125,9 @@ public class CreateContractTest {
 		
 		Contpg.ToCheckVisibilityOfAddMakeModel();
 		
-		Contpg.EnterCargoType("TRUCK");
+		//Contpg.EnterCargoType("TRUCK");
+		
+		Contpg.EnterCargoType((DataProviderFactory.getExcel().getStringData("ContractData",7,1)));
 		
 		logger.log(LogStatus.INFO,"Entered Cargo Type");
 		
@@ -116,18 +135,24 @@ public class CreateContractTest {
 		
 		//Contpg.EnterContMakeName("MARUTI");  ASHOK
 		
-		Contpg.EnterContMakeName("ASHOK"); 
+		//Contpg.EnterContMakeName("ASHOK"); 
+		
+		Contpg.EnterContMakeName((DataProviderFactory.getExcel().getStringData("ContractData",8,1))); 
 		
 		Thread.sleep(3000);
 		
 		//Contpg.EnterContModelName("BALENO");  
 		
-		Contpg.EnterContModelName("MINI TRUCK");
+		//Contpg.EnterContModelName("MINI TRUCK");
+		
+		Contpg.EnterContModelName((DataProviderFactory.getExcel().getStringData("ContractData",9,1)));
 		
 				
 		Thread.sleep(3000);
 		
-		Contpg.EnterContADDModifyRevenue("PB");
+		//Contpg.EnterContADDModifyRevenue("PB");
+		
+		Contpg.EnterContADDModifyRevenue((DataProviderFactory.getExcel().getStringData("ContractData",10,1)));
 		
 		logger.log(LogStatus.INFO,"Revenue added");
 		
@@ -146,7 +171,7 @@ public class CreateContractTest {
 		Thread.sleep(5000);
 		
 	}
-	
+	/*
 	@AfterMethod
 	public void tearDown()
 	{
@@ -154,5 +179,5 @@ public class CreateContractTest {
 		driver.quit();
 	}
 	
-
+*/
 }

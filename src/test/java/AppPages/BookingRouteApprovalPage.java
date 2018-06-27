@@ -19,7 +19,9 @@ public class BookingRouteApprovalPage {
 	
 	@FindBy(xpath="//input[@id='btnPCLSearch']") WebElement Search_appv;
 	
-	@FindBy(xpath="//input[@id='chk5117']") WebElement SelectRecord;
+	//@FindBy(xpath="//input[@id='chk5117']") WebElement SelectRecord;
+	
+	@FindBy(xpath="//input[@name='chkStatus']") WebElement SelectRecord;
 	
 	@FindBy(xpath="//input[@id='btnLineUpdate']") WebElement ApproveButton;
 	

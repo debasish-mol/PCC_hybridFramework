@@ -13,6 +13,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import Factory.DataProviderFactory;
+
 public class CreateUpdateBL {
 	
 	public WebDriver driver;
@@ -132,7 +134,8 @@ public class CreateUpdateBL {
 		
 		gdSeq1.click();
 		
-		gddescrip.sendKeys("generated from B/L print and Mass B/L print for Agent Screen1");
+		gddescrip.sendKeys(DataProviderFactory.getExcel().getStringData("bldata",9,3));
+		
 		
 		
 		if (cargoNo> 1)
@@ -150,7 +153,7 @@ public class CreateUpdateBL {
 				
 				Thread.sleep(3000);
 				
-				gddescrip.sendKeys("generated from B/L print and Mass B/L print for Agent Screen "+i);
+				gddescrip.sendKeys(DataProviderFactory.getExcel().getStringData("bldata",9,3)+i);
 				
 			}
 			

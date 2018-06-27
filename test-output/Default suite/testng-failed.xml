@@ -7,6 +7,7 @@
         <methods>
           <include name="ContractEntry"/>
           <include name="setup"/>
+          <include name="tearDown"/>
         </methods>
       </class> <!-- TestCases.CreateContractTest -->
     </classes>

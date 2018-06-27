@@ -28,7 +28,7 @@ public WebDriver driver;
 	{
 		BrowserFactory br = new BrowserFactory();
 		
-		driver = br.getBrowser("Chrome");
+		driver = br.getBrowser("IE");
 		
 		String url = "CrBookContact";
 		
@@ -66,6 +66,8 @@ public WebDriver driver;
 		{
 			driver.switchTo().window(s);
 			
+			driver.manage().window().maximize();
+			
 			if(driver.findElement(By.xpath("html/body/div[2]/div[1]/h2")).getText().contains("View Contract"))
 			{
 				System.out.println("Inside If loop");
@@ -83,15 +85,25 @@ public WebDriver driver;
 		
 		cbfc.ClickOnCreateButton();
 		
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		
 		BookingEntryPage bep = PageFactory.initElements(driver,BookingEntryPage.class);
 		
-		bep.Enter_Doc_Entry_Office("MOLSIN");
+		//bep.Enter_Doc_Entry_Office("MOLSIN");
 		
-		bep.Enter_Doc_Issue_Office("MOLSIN");
+		bep.Enter_Doc_Entry_Office(DataProviderFactory.getExcel().getStringData("bldata",0,3));
 		
-		bep.EnterCnsTab("5056735");
+		bep.Enter_Doc_Issue_Office(DataProviderFactory.getExcel().getStringData("bldata",1,3));
+		
+		int cons_no_int = DataProviderFactory.getExcel().getNumberData("bldata",2,3);
+		
+		//String Cons_no= Integer(cons_no_int).toString();
+		
+		String Cons_no = String.valueOf(cons_no_int);
+		
+		System.out.println("Printing the value of consignee "+Cons_no);
+		
+		bep.EnterCnsTab(Cons_no);
 		
 		bep.ClickOnVoyageSearch();
 		
@@ -103,7 +115,7 @@ public WebDriver driver;
 		
 		System.out.println("Draft saved");
 		
-		bep.getBookingNo();  // Printing Booking Number at console as well as writting to excell file 
+		bep.getBookingNo();  // Printing Booking Number at console as well as writing to excel file 
 		
 		bep.SelectStatusOfBooking("Requested");
 		
@@ -114,6 +126,11 @@ public WebDriver driver;
 		
 		System.out.println("Requested saved");
 		
+	}
+
+	private Object Integer(int cons_no_int) {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 		
 }

@@ -74,7 +74,7 @@
 <configuration>
  
 <suiteXmlFiles>
-<suiteXmlFile>Contract.xml</suiteXmlFile>
+<suiteXmlFile>BLCreation.xml</suiteXmlFile>
 </suiteXmlFiles>
  
 </configuration>

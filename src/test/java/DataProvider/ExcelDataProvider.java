@@ -5,11 +5,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -67,6 +70,61 @@ public class ExcelDataProvider {
 		return bl_no;
 	}
 	
+	public String getStringData(String sheetName,int row,int col)
+	
+	{
+		String data = wb.getSheet(sheetName).getRow(row).getCell(col).toString();
+		
+		return data;
+	}
+	
+		public String getDateData(String sheetName,int row,int col)
+	
+	{  			 XSSFCell cell=wb.getSheet(sheetName).getRow(row).getCell(col);
+		
+					//String data = wb.getSheet(sheetName).getRow(row).getCell(col).toString();
+			
+			           	
+                	SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                	
+                	//System.out.print(dateFormat.format(cell.getDateCellValue()));
+                	
+                	String data = dateFormat.format(cell.getDateCellValue());
+                	
+                	//System.out.print(date);
+                	
+                	//System.out.print(dateFormat.format(cell.getDateCellValue()) + "\t\t");
+                	
+                  //  System.out.print(cell.getDateCellValue());
+                    
+                    System.out.print("  ");
+		
+		return data;
+	}
+	
+		public int getNumberData(String sheetName,int row,int col)
+		
+		{   XSSFCell cell=wb.getSheet(sheetName).getRow(row).getCell(col);
+			
+				
+		int number = (int)cell.getNumericCellValue();	           	
+	                	
+			return number;
+		}
+		
+		
+		public double getNumberDataDouble(String sheetName,int row,int col)
+		
+		{   XSSFCell cell=wb.getSheet(sheetName).getRow(row).getCell(col);
+			
+				
+		double number = (double)cell.getNumericCellValue();	           	
+	                	
+			return number;
+		}
+		
+		
+		
 	public void WriteDataExcel(String sheetName,int row1,int col1,String data) throws IOException
 	{
 		

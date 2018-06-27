@@ -137,7 +137,12 @@ public class BookingEntryPage
 		
 		Thread.sleep(2000);
 		
-		NoOfCargoUnit.sendKeys("10");
+		int Cargo_Unit_int = DataProviderFactory.getExcel().getNumberData("bldata",3,3);
+		
+			
+		String Cargo_Unit = String.valueOf(Cargo_Unit_int);
+		
+		NoOfCargoUnit.sendKeys(Cargo_Unit);
 		
 		CargoOKButton.click();
 		

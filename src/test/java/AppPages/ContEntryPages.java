@@ -170,9 +170,11 @@ public class ContEntryPages {
 		ContName.sendKeys(name);
 	}
 	
-	public void EnterMainCustomer(String name)
+	public void EnterMainCustomer(int name)
 	{
-		MainCustName.sendKeys(name);
+		String name1 = Integer.toString(name);
+		
+		MainCustName.sendKeys(name1);
 	}
 	
 	
@@ -328,9 +330,18 @@ public class ContEntryPages {
 			}
 		}
 		
-		ContRate.sendKeys("2000");
+		//ContRate.sendKeys("2000");
 		
-		ContCurrency.sendKeys("SGD");
+        int no2=DataProviderFactory.getExcel().getNumberData("ContractData",11,1);
+		
+		String no3= Integer.toString(no2);
+		
+		ContRate.sendKeys(no3);  // Rate 
+		
+		
+		//ContCurrency.sendKeys("SGD");
+		
+		ContCurrency.sendKeys(DataProviderFactory.getExcel().getStringData("ContractData",12,1));  // Currency
 		
 		Thread.sleep(1000);
 		
@@ -341,7 +352,7 @@ public class ContEntryPages {
 		
 		for(WebElement e: ContPreColList)
 		{
-			if(e.getText().equalsIgnoreCase("P"))
+			if(e.getText().equalsIgnoreCase(DataProviderFactory.getExcel().getStringData("ContractData",13,1)))
 			{
 			System.out.println("Prepaid or Collect "+e.getText());
 			
@@ -350,7 +361,7 @@ public class ContEntryPages {
 		}
 		
 		
-		ContFrtCollOfc.sendKeys("MOLSIN");
+		ContFrtCollOfc.sendKeys(DataProviderFactory.getExcel().getStringData("ContractData",14,1)); // Freight Office
 		
 		Thread.sleep(2000);
 		
@@ -358,7 +369,7 @@ public class ContEntryPages {
 		
 		Thread.sleep(2000);
 		
-		ContInvOfc.sendKeys("MOLSIN");
+		ContInvOfc.sendKeys(DataProviderFactory.getExcel().getStringData("ContractData",15,1)); // Invoice Office
 		
 		Thread.sleep(2000);
 		
@@ -366,13 +377,21 @@ public class ContEntryPages {
 		
 		Thread.sleep(2000);
 		
-		payer.sendKeys("5117553");
+		//payer.sendKeys("5117553");
 		
-		Thread.sleep(3500);
+		int no=DataProviderFactory.getExcel().getNumberData("ContractData",16,1);  //payer
+		
+		String no1= Integer.toString(no);
+		
+		payer.sendKeys(no1);
+		
+		
+		
+		Thread.sleep(5000);
 		
 		ContRevSave.click();
 		
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		ContRevWinClose.click();
 		

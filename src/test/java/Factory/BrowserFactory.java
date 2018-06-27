@@ -28,7 +28,9 @@ public class BrowserFactory {
 		
 		if(BrowserName.equalsIgnoreCase("Chrome"))
 		{
-			 System.setProperty("webdriver.chrome.driver", "D:\\all\\personal\\backup\\Selenium3\\chromedriver.exe");
+			// System.setProperty("webdriver.chrome.driver", "D:\\all\\personal\\backup\\Selenium3\\chromedriver.exe");
+			
+			System.setProperty("webdriver.chrome.driver", ".\\Driver\\chromedriver.exe");
 					
 			//System.getProperty("webdriver.chrome.driver",DataProviderFactory.getConfig().getChromePath());
 			
@@ -39,11 +41,29 @@ public class BrowserFactory {
 		
 		if(BrowserName.equalsIgnoreCase("IE"))
 		{
-			System.getProperty("webdriver.ie.driver",DataProviderFactory.getConfig().getIEpath());
+			//System.getProperty("webdriver.ie.driver",DataProviderFactory.getConfig().getIEpath());
+			
+			System.setProperty("webdriver.ie.driver", ".\\Driver\\IEDriverServer.exe");
+			
+					
+			//System.setProperty("webdriver.ie.driver", "D:\\all\\personal\\backup\\Selenium3\\IEDriverServer.exe");
 			
 			driver=new InternetExplorerDriver();
 			
+			try {
+				Thread.sleep(3000);
+			} catch (Exception e) {
+				
+				System.out.println("Exception type "+e.getMessage());
+				
+				//e.printStackTrace();
+				
+				
+			}
+			
 			driver.manage().window().maximize();
+			
+			
 		}
 		
 		

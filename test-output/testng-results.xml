@@ -2,24 +2,31 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="79039" started-at="2018-05-16T05:19:24Z" finished-at="2018-05-16T05:20:43Z">
+  <suite name="Default suite" duration-ms="135916" started-at="2018-06-27T06:45:44Z" finished-at="2018-06-27T06:48:00Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="79039" started-at="2018-05-16T05:19:24Z" finished-at="2018-05-16T05:20:43Z">
-      <class name="TestCases.CreateContractTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:TestCases.CreateContractTest@1ce4f0a]" name="setup" is-config="true" duration-ms="19230" started-at="2018-05-16T10:49:24Z" finished-at="2018-05-16T10:49:43Z">
+    <test name="Default test" duration-ms="135916" started-at="2018-06-27T06:45:44Z" finished-at="2018-06-27T06:48:00Z">
+      <class name="TestCases.CreateBlWithRevenueUpdate">
+        <test-method status="PASS" signature="setup()[pri:0, instance:TestCases.CreateBlWithRevenueUpdate@1ce4f0a]" name="setup" is-config="true" duration-ms="31179" started-at="2018-06-27T12:15:45Z" finished-at="2018-06-27T12:16:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="ContractEntry()[pri:0, instance:TestCases.CreateContractTest@1ce4f0a]" name="ContractEntry" duration-ms="58710" started-at="2018-05-16T10:49:43Z" finished-at="2018-05-16T10:50:42Z">
+        <test-method status="PASS" signature="ApplicationLogin()[pri:1, instance:TestCases.CreateBlWithRevenueUpdate@1ce4f0a]" name="ApplicationLogin" duration-ms="103057" started-at="2018-06-27T12:16:16Z" finished-at="2018-06-27T12:17:59Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ContractEntry -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:TestCases.CreateContractTest@1ce4f0a]" name="tearDown" is-config="true" duration-ms="1050" started-at="2018-05-16T10:50:42Z" finished-at="2018-05-16T10:50:43Z">
+        </test-method> <!-- ApplicationLogin -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:TestCases.CreateBlWithRevenueUpdate@1ce4f0a]" name="tearDown" is-config="true" duration-ms="1647" started-at="2018-06-27T12:17:59Z" finished-at="2018-06-27T12:18:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ApplicationLogin status=SUCCESS method=CreateBlWithRevenueUpdate.ApplicationLogin()[pri:1, instance:TestCases.CreateBlWithRevenueUpdate@1ce4f0a] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- TestCases.CreateContractTest -->
+      </class> <!-- TestCases.CreateBlWithRevenueUpdate -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

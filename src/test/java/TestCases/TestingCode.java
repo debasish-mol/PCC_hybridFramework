@@ -11,6 +11,19 @@ public class TestingCode {
 
 	public static void main(String[] args) {
 		
+		
+		
+	String date	=DataProviderFactory.getExcel().getDateData("ContractData", 3,1);
+	
+	System.out.println("date "+date);
+		
+		
+		
+		
+		
+		
+		
+		
 		/*String url = DataProviderFactory.getConfig().getUrl();
 		
 		System.out.println("Printing Url "+url);
@@ -31,10 +44,10 @@ public class TestingCode {
 		
 		System.out.println(data);
 		*/
-		
+		/*
       BrowserFactory br = new BrowserFactory();
 		
-		WebDriver driver = br.getBrowser("Chrome");
+		WebDriver driver = br.getBrowser("IE");
 		
 		  String url="url1";
 	        
@@ -49,7 +62,7 @@ public class TestingCode {
 		
 		ipages.loginpages("tomsmith","SuperSecretPassword!");
 		
-		
+		*/
 	}
 
 }

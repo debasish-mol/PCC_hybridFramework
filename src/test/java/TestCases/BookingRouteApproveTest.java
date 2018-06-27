@@ -1,5 +1,6 @@
 package TestCases;
 
+import org.apache.poi.ss.util.NumberToTextConverter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
@@ -22,7 +23,7 @@ public class BookingRouteApproveTest {
 	{
 		BrowserFactory br = new BrowserFactory();
 		
-        driver = br.getBrowser("Chrome");
+        driver = br.getBrowser("IE");
         
 		String url = "BookingRoute";
 		
@@ -42,7 +43,11 @@ public class BookingRouteApproveTest {
 		
 		BookingRouteApprovalPage brap = PageFactory.initElements(driver,BookingRouteApprovalPage.class);
 		
-		String Bkg_no=DataProviderFactory.getExcel().getBookingNoString("bldata",2,1);
+		String Bkg_no = NumberToTextConverter.toText(DataProviderFactory.getExcel().getNumberDataDouble("bldata",0,1));		
+			
+			
+		System.out.println("Printing Booking number String "+Bkg_no);
+		
 		
 		brap.EnterBooking_No_appv(Bkg_no);
 		
