@@ -23,7 +23,7 @@ public class BookingRouteApproveTest {
 	{
 		BrowserFactory br = new BrowserFactory();
 		
-        driver = br.getBrowser("IE");
+        driver = br.getBrowser();
         
 		String url = "BookingRoute";
 		

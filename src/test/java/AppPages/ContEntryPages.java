@@ -3,6 +3,7 @@ package AppPages;
 import java.io.IOException;
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -167,6 +168,10 @@ public class ContEntryPages {
 	
 	public void EnterContractName(String name)
 	{
+		
+		WebDriverWait wait = new WebDriverWait(driver,10);
+		wait.until(ExpectedConditions.elementToBeClickable(ContName));
+		
 		ContName.sendKeys(name);
 	}
 	
@@ -175,6 +180,11 @@ public class ContEntryPages {
 		String name1 = Integer.toString(name);
 		
 		MainCustName.sendKeys(name1);
+		
+		WebDriverWait wait = new WebDriverWait(driver,10);
+		
+		wait.until(ExpectedConditions.textToBePresentInElementValue(driver.findElement(By.xpath("//input[@id='MainCustCode']")),name1));
+		
 	}
 	
 	

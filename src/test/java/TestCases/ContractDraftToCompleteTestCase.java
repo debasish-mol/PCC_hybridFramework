@@ -38,7 +38,7 @@ public class ContractDraftToCompleteTestCase {
 		
 		BrowserFactory br = new BrowserFactory();
 		
-        driver = br.getBrowser("IE");
+        driver = br.getBrowser();
         
         logger.log(LogStatus.INFO,"Browser is invoked");
         

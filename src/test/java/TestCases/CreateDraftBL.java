@@ -37,7 +37,7 @@ public class CreateDraftBL {
 		
 		BrowserFactory br = new BrowserFactory();
 		
-        driver = br.getBrowser("IE");
+        driver = br.getBrowser();
         
         logger.log(LogStatus.INFO,"Browser opened");
 		

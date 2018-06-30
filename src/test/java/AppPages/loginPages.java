@@ -31,8 +31,14 @@ public class loginPages {
 	
 	public void loginInfo()
 	{
+		userName.clear();
+		
 		userName.sendKeys(DataProviderFactory.getExcel().getData(0, 0, 0));
+		
+		password.clear();
+		
 		password.sendKeys(DataProviderFactory.getExcel().getData(0, 0, 1));
+		
 		login.click();
 	}
 	

@@ -16,31 +16,10 @@ public class BrowserFactory {
 	
 	//ConfigdataProvider dp = new ConfigdataProvider();
 	
-	public WebDriver getBrowser(String BrowserName)
+	public WebDriver getBrowser()
 	{
 		
-		if(BrowserName.equalsIgnoreCase("firefox"))
-		{
-			driver=new FirefoxDriver();
-			
-			driver.manage().window().maximize();
-		}
 		
-		if(BrowserName.equalsIgnoreCase("Chrome"))
-		{
-			// System.setProperty("webdriver.chrome.driver", "D:\\all\\personal\\backup\\Selenium3\\chromedriver.exe");
-			
-			System.setProperty("webdriver.chrome.driver", ".\\Driver\\chromedriver.exe");
-					
-			//System.getProperty("webdriver.chrome.driver",DataProviderFactory.getConfig().getChromePath());
-			
-			driver=new ChromeDriver();
-			
-			driver.manage().window().maximize();
-		}
-		
-		if(BrowserName.equalsIgnoreCase("IE"))
-		{
 			//System.getProperty("webdriver.ie.driver",DataProviderFactory.getConfig().getIEpath());
 			
 			System.setProperty("webdriver.ie.driver", ".\\Driver\\IEDriverServer.exe");
@@ -64,7 +43,7 @@ public class BrowserFactory {
 			driver.manage().window().maximize();
 			
 			
-		}
+		
 		
 		
 		

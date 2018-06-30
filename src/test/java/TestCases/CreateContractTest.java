@@ -1,5 +1,7 @@
 package TestCases;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
@@ -35,7 +37,7 @@ public class CreateContractTest {
 		
 		BrowserFactory br = new BrowserFactory();
 		
-        driver = br.getBrowser("IE");
+        driver = br.getBrowser();
         
         logger.log(LogStatus.INFO,"Browser is invoked");
         
@@ -68,11 +70,13 @@ public class CreateContractTest {
 		
 		//Contpg.ContractType("Transport Contract");
 		
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		
 		Contpg.ContractType(DataProviderFactory.getExcel().getStringData("ContractData",0,1));
 		
 		logger.log(LogStatus.INFO,"Contract type is selected");
 		
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		
 		//Contpg.EnterContractName("TransportContract");
 		
@@ -87,7 +91,7 @@ public class CreateContractTest {
 		
 		logger.log(LogStatus.INFO,"Entered Customer code");
 		
-		Thread.sleep(5000);
+		//Thread.sleep(5000);
 		
 		//Contpg.EnterEffectivedate("24/04/2018");
 		
@@ -148,7 +152,7 @@ public class CreateContractTest {
 		Contpg.EnterContModelName((DataProviderFactory.getExcel().getStringData("ContractData",9,1)));
 		
 				
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		
 		//Contpg.EnterContADDModifyRevenue("PB");
 		

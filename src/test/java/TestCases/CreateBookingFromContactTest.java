@@ -28,7 +28,7 @@ public WebDriver driver;
 	{
 		BrowserFactory br = new BrowserFactory();
 		
-		driver = br.getBrowser("IE");
+		driver = br.getBrowser();
 		
 		String url = "CrBookContact";
 		
@@ -85,7 +85,7 @@ public WebDriver driver;
 		
 		cbfc.ClickOnCreateButton();
 		
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		
 		BookingEntryPage bep = PageFactory.initElements(driver,BookingEntryPage.class);
 		
