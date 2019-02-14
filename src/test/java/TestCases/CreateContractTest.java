@@ -31,7 +31,7 @@ public class CreateContractTest {
 	@BeforeMethod
 	public void setup() 
 	{
-		report = new ExtentReports(".//Reports/CreateContactTest.html",true);
+		report = new ExtentReports(".//Reports//CreateContactTest.html",true);
 		
 		logger= report.startTest("Verify Test Login");
 		
@@ -55,7 +55,7 @@ public class CreateContractTest {
 		
 		logger.log(LogStatus.PASS,"logged in successfully");
 		
-		logger.log(LogStatus.INFO,logger.addScreenCapture(Helper.captureScreenshot(driver,"LoginPage")));
+		logger.log(LogStatus.INFO,logger.addScreenCapture(Helper.captureScreenshot(driver,"login")));
 		
 	}
 	
@@ -65,104 +65,133 @@ public class CreateContractTest {
 		
 		ContEntryPages Contpg = PageFactory.initElements(driver,ContEntryPages.class);
 		
-		// Contract type = Transport Contract / Quotation / Spot Rate Guidelines Agreement with Brokers Agreement with Broker Customers
-		
-		
-		//Contpg.ContractType("Transport Contract");
-		
 		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 		
-		Contpg.ContractType(DataProviderFactory.getExcel().getStringData("ContractData",0,1));
+		Contpg.contractType(DataProviderFactory.getExcel().getStringData("ContractData",0,1));
 		
 		logger.log(LogStatus.INFO,"Contract type is selected");
 		
 		//Thread.sleep(3000);
-		
-		//Contpg.EnterContractName("TransportContract");
-		
-		Contpg.EnterContractName(DataProviderFactory.getExcel().getStringData("ContractData",1,1));
-				
+					
+		Contpg.enterContractName(DataProviderFactory.getExcel().getStringData("ContractData",1,1));
 		
 		logger.log(LogStatus.INFO,"Entered Contract name");
-		
-		//Contpg.EnterMainCustomer("5117553"); // Entering Customer Code
-		
-		Contpg.EnterMainCustomer(DataProviderFactory.getExcel().getNumberData("ContractData",2,1)); // Entering Customer Code
+			
+		Contpg.enterMainCustomer(DataProviderFactory.getExcel().getNumberData("ContractData",2,1)); // Entering Customer Code
 		
 		logger.log(LogStatus.INFO,"Entered Customer code");
-		
-		//Thread.sleep(5000);
-		
-		//Contpg.EnterEffectivedate("24/04/2018");
-		
-		Contpg.EnterEffectivedate(DataProviderFactory.getExcel().getDateData("ContractData", 3,1));
-		
-		
-		//Contpg.EnterExpiryDate("24/04/2019");
-		
-		Contpg.EnterExpiryDate(DataProviderFactory.getExcel().getDateData("ContractData", 4,1));
-		
-		
-		Contpg.ClickOnFirstPageSave();
+			
+		Contpg.enterEffectivedate(DataProviderFactory.getExcel().getDateData("ContractData", 3,1));
+						
+		Contpg.enterExpiryDate(DataProviderFactory.getExcel().getDateData("ContractData", 4,1));
+				
+		Contpg.clickOnFirstPageSave();
 		
 		logger.log(LogStatus.PASS,"First page saved");
 		
 		logger.log(LogStatus.INFO,logger.addScreenCapture(Helper.captureScreenshot(driver,"FirstPageContract")));
 		
-	    Thread.sleep(5000);
+	   // Thread.sleep(5000);
 		
 		Contpg.ToCheckAddLpDpVisibility();   // Dynamic Wait or Explicit Wait
 		
 		Contpg.PrintContNo();  // Printing Contact No & Writting to excell output file - AppData.xlsx
-		
-		//Contpg.EnterContLoadPort("SGSINPP");
-		
-		Contpg.EnterContLoadPort((DataProviderFactory.getExcel().getStringData("ContractData",5,1)));
-		
-		//Contpg.EnterContDisPort("HKHKGPC");
-		
-		Contpg.EnterContDisPort((DataProviderFactory.getExcel().getStringData("ContractData",6,1)));
+						
+		try {
+			
+			Contpg.enterContLoadPort((DataProviderFactory.getExcel().getStringData("ContractData",5,1)));
+			
+		} catch (Exception eEnterContLoadPort) {
+			
+			System.out.println("Exception at Entering load port "+eEnterContLoadPort);
+		}
+						
+		try {
+			
+			Contpg.enterContDisPort((DataProviderFactory.getExcel().getStringData("ContractData",6,1)));
+			
+		} catch (Exception eEnterContDisPort) {
+			
+			System.out.println("Exception at Entering Discharge port"+eEnterContDisPort.getMessage());
+			
+			
+		}
 		
 		logger.log(LogStatus.INFO,"Entered Load Port & Discharge port");
 		
-		Contpg.ClickOnContADDLpDpSave();
+		try {
+			
+			Contpg.clickOnContADDLpDpSave();
 		
-		Contpg.ToCheckVisibilityOfAddMakeModel();
+		} catch (Exception eADDLpDpSave) {
+			
+			System.out.println("Exception at Saving Load/Discharge Section "+eADDLpDpSave);
+		}
 		
-		//Contpg.EnterCargoType("TRUCK");
+		try {
+			
+			Contpg.ToCheckVisibilityOfAddMakeModel();
 		
-		Contpg.EnterCargoType((DataProviderFactory.getExcel().getStringData("ContractData",7,1)));
+		} catch (Exception eAddMakeModel) {
+			
+			System.out.println("Exception at Opening make model "+eAddMakeModel.getMessage());
+			
+		}
+			
+		try{
+		
+			Contpg.EnterCargoType((DataProviderFactory.getExcel().getStringData("ContractData",7,1)));
+		
+		}catch(Exception eCargoType)
+		{
+			System.out.println("Exception at Cargo section "+eCargoType.getMessage());
+		}
 		
 		logger.log(LogStatus.INFO,"Entered Cargo Type");
 		
-		Thread.sleep(4000);
-		
-		//Contpg.EnterContMakeName("MARUTI");  ASHOK
-		
-		//Contpg.EnterContMakeName("ASHOK"); 
-		
+		//Thread.sleep(4000);
+		try{
+			
 		Contpg.EnterContMakeName((DataProviderFactory.getExcel().getStringData("ContractData",8,1))); 
 		
-		Thread.sleep(3000);
+		}catch(Exception eContMakeName)
+		{
+			System.out.println("Exception at make section "+eContMakeName.getMessage());
+		}
+		//Thread.sleep(3000);
 		
-		//Contpg.EnterContModelName("BALENO");  
+		try{
 		
-		//Contpg.EnterContModelName("MINI TRUCK");
+		Contpg.enterContModelName((DataProviderFactory.getExcel().getStringData("ContractData",9,1)));
 		
-		Contpg.EnterContModelName((DataProviderFactory.getExcel().getStringData("ContractData",9,1)));
+		}catch(Exception eModelName)
+		{
+			System.out.println("Exception at model entry section "+eModelName.getMessage());
+		}
 		
-				
-		Thread.sleep(4000);
+		//Thread.sleep(4000);
 		
-		//Contpg.EnterContADDModifyRevenue("PB");
-		
+		try{
+						
 		Contpg.EnterContADDModifyRevenue((DataProviderFactory.getExcel().getStringData("ContractData",10,1)));
+		
+		}catch(Exception eRevenue)
+		{
+			System.out.println("Exception at revenue section "+eRevenue.getMessage());
+		}
 		
 		logger.log(LogStatus.INFO,"Revenue added");
 		
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		
-		Contpg.ConCragoSaveButton();
+		try {
+			
+			Contpg.conCragoSaveButton();
+			
+		} catch (Exception eCragoSaveButton) {
+			
+			System.out.println("Exception at Model and Revenue details Saving "+eCragoSaveButton.getMessage());
+		}
 		
 		logger.log(LogStatus.PASS,"Contract Saved with Draft status");
 		

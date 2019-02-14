@@ -5,6 +5,8 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -70,26 +72,45 @@ public class ContractDraftToCompleteTestCase {
 		
 		String Contract_no = DataProviderFactory.getExcel().getBookingNoString("bldata",1,1);
 		
-		csSreen.EnterContactNumber(Contract_no);
+		csSreen.enterContactNumber(Contract_no);
 		
 		logger.log(LogStatus.INFO,"Contract no. is entered");
 		
-		csSreen.ClickOnSearch();
+		try {
+			csSreen.clickOnSearch();
+			
+		} catch (Exception eClickOnSearch) {
+			
+			System.out.println("Exception at Contract Search "+eClickOnSearch.getMessage());
+		}
 		
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		
 		logger.log(LogStatus.INFO,"Found Search Result");
 		
 		String curWindowControl = driver.getWindowHandle();
 		
-		csSreen.ClickOnEditContact();
+		try {
+			csSreen.clickOnEditContact();
+			
+		} catch (Exception eClickOnEditContact) {
+			
+			System.out.println("Exception at Contract Edit "+eClickOnEditContact.getMessage());
+		}
 		
-		Thread.sleep(3000);
+		WebDriverWait waitMulti = new WebDriverWait(driver,10);
+		
+		waitMulti.until(ExpectedConditions.numberOfWindowsToBe(2));
+		
+		
+		
+		//Thread.sleep(3000);
 		
 		logger.log(LogStatus.INFO,"Clicked on Edit button");
 		
 		Set<String> allWinControls = driver.getWindowHandles();
 		
+				
 		ContEntryPages Contpg = PageFactory.initElements(driver,ContEntryPages.class);
 		
 		for(String s: allWinControls )
@@ -102,12 +123,12 @@ public class ContractDraftToCompleteTestCase {
 			{
 				//Contpg.EnterSalesPerson();
 				
-				Contpg.SelectContactStatus();
+				Contpg.selectContactStatus();
 				
 								
 				Thread.sleep(2000);
 				
-				Contpg.ClickOnHdrSave();
+				Contpg.clickOnHdrSave();
 				
 			}
 			

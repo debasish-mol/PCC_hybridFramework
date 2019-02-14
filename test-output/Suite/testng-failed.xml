@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test name="BookingTestScenario(failed)">
+  <test name="Test(failed)">
     <classes>
-      <class name="TestCases.CreateBookingFromContactTest">
+      <class name="TestCases.CreateDraftBL">
         <methods>
-          <include name="CreateBooking"/>
+          <include name="ApplicationLogin1"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- TestCases.CreateBookingFromContactTest -->
-      <class name="TestCases.BookingRouteApproveTest">
+      </class> <!-- TestCases.CreateDraftBL -->
+      <class name="TestCases.CreateBlWithRevenueUpdate">
         <methods>
-          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="ApplicationLogin"/>
         </methods>
-      </class> <!-- TestCases.BookingRouteApproveTest -->
+      </class> <!-- TestCases.CreateBlWithRevenueUpdate -->
     </classes>
-  </test> <!-- BookingTestScenario(failed) -->
+  </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

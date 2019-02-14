@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="TestCases.CreateContractTest">
+      <class name="TestCases.CreateBookingFromContactTest">
         <methods>
-          <include name="ContractEntry"/>
+          <include name="CreateBooking"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- TestCases.CreateContractTest -->
+      </class> <!-- TestCases.CreateBookingFromContactTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

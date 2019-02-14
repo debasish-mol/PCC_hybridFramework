@@ -1,8 +1,12 @@
 package TestCases;
 
+import java.util.concurrent.TimeUnit;
+
 import org.apache.poi.ss.util.NumberToTextConverter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -13,6 +17,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import AppPages.CreateUpdateBL;
+import AppPages.HomePageIndex;
 import AppPages.InvokeCreateBL;
 import AppPages.loginPages;
 import Factory.BrowserFactory;
@@ -55,15 +60,11 @@ public WebDriver driver;
 		logger.log(LogStatus.INFO,"Login succesfully");
 		
 	}
-	
+
 	@Test(priority=1)
 	public void ApplicationLogin() throws InterruptedException
 	{
 		//loginPages login = new loginPages(driver);
-		
-		
-
-		
 		
 				
 	/*}
@@ -93,51 +94,69 @@ public WebDriver driver;
 		
 		CreateUpdateBL cubl = PageFactory.initElements(driver, CreateUpdateBL.class);
 		
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		
+		cubl.selectIssueType();
+		
 		cubl.setGoodsDescription();
 		
 		logger.log(LogStatus.INFO,"Goods description added");
 		
-		Thread.sleep(3000);
+		
+		cubl.waitGoodsDescription();
+		
+		
+		//Thread.sleep(3000);
 		
 		cubl.AddRevenue();
 		
 		logger.log(LogStatus.INFO,"Added Revenue");
 		
-		Thread.sleep(4000);
+		//Thread.sleep(4000);
 		
          cubl.clickOnSave();
          
-         Thread.sleep(4000);
+        // Thread.sleep(4000);
+         
+        cubl.waitToSaveCompletion(); 
          
 		cubl.transactionLog();
 		
 		logger.log(LogStatus.INFO,"Saved B/L in deaft Status");
 		
-		Thread.sleep(4000);
-					
+		//Thread.sleep(4000);
+		
+							
 		cubl.getBLNumber();
 		
-		Thread.sleep(4000);
+		//Thread.sleep(4000);
 		
 		logger.log(LogStatus.INFO,"B/L no is written at excel file");
 		
+				
 		cubl.clickOnComplete();
 		
-		Thread.sleep(4000);
+		cubl.waitToSaveCompletion(); 
+		
+		//Thread.sleep(4000);
 		
 		cubl.transactionLog();
 		
 		logger.log(LogStatus.INFO,"Saved B/L with complete Status");
 		
-		Thread.sleep(4000);
+		//Thread.sleep(4000);
 		
 		cubl.ReadyForInvoiceIssue();
 		
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
+		
+		cubl.waitToSaveCompletion();
 		
 		cubl.transactionLog();
 		
-		Thread.sleep(4000);
+		//Thread.sleep(4000);
+		
+		cubl.getBLStatus();
 		
 		logger.log(LogStatus.INFO,logger.addScreenCapture(Helper.captureScreenshot(driver,"CreateCompleteBL")));
 		
@@ -147,7 +166,7 @@ public WebDriver driver;
 				
 		}
 	
-	
+	/*
 	@AfterMethod
 	public void tearDown(ITestResult result)
 	{
@@ -159,7 +178,7 @@ public WebDriver driver;
 			
 		}
 		
-		driver.quit();
-	}
+		//driver.quit();
+	} */
 
 }

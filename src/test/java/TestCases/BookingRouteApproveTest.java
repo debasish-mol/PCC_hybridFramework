@@ -51,27 +51,37 @@ public class BookingRouteApproveTest {
 		
 		brap.EnterBooking_No_appv(Bkg_no);
 		
-		Thread.sleep(1500);
-		
+				
 		brap.ClickOnSearch();
 		
-		Thread.sleep(3000);
+	
 		
-		brap.CheckBookingRecord();
+		try {
+			
+			brap.CheckBookingRecord();
+			
+		} catch (Exception eSelectBooking) {
+			
+			System.out.println("Exception at Selecting booking number "+eSelectBooking.getMessage());
+			
+		}
 		
 		brap.ClickOnApproveButton();
 		
-		Thread.sleep(4000);
+		
 		
 		brap.SelectRouteStatus("Approved");
 		
+		try {
+			brap.getBookingRtSts();
+		} catch (Exception eGetBkgSts) {
+			
+			System.out.println("Exception at Booking Route status checking "+eGetBkgSts.getMessage() );
+			
+			
+		}
 		
-		
-		
-		
-		
-		
-		
+			
 		
 	}
 	

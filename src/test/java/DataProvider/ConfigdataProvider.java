@@ -13,7 +13,7 @@ public class ConfigdataProvider {
 	
 	public ConfigdataProvider()
 	{
-		File file = new File("D:\\all\\personal\\backup\\Selenium3\\SeleniumProgram\\com.Pcc.Net.Hybridframework\\Configuration\\config.properties");
+		File file = new File(".\\Configuration\\config.properties");
 		
 		try {
 			 fis = new FileInputStream(file);

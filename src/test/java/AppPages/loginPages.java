@@ -40,6 +40,21 @@ public class loginPages {
 		password.sendKeys(DataProviderFactory.getExcel().getData(0, 0, 1));
 		
 		login.click();
+		
+		
+		if(!driver.getTitle().contains("Index"))
+		{
+			System.out.println("WAIT");
+			try {
+				Thread.sleep(15000);
+			} catch (InterruptedException eGetTittle) {
+				
+				eGetTittle.printStackTrace();
+			}
+		}
+		else System.out.println(driver.getTitle());
+		
+		
 	}
 	
 	

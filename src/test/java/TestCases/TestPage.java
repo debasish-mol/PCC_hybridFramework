@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.poi.ss.util.NumberToTextConverter;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,7 +21,43 @@ public class TestPage {
 	
 	
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException
+	{
+	
+		
+		File file ;
+		String excelPath="D:\\all\\personal\\backup\\Selenium3\\SeleniumProgram\\com.Pcc.Net.Hybridframework\\ApplicationTestData\\CreateVessel.xlsx";
+		
+	//	double intLpp= DataProviderFactory.getExcel().getNumbervalue(excelPath,"VslCreate",1,11);
+		
+		
+		
+			
+			
+			
+			
+				XSSFWorkbook wb1 = new XSSFWorkbook(new FileInputStream(excelPath));
+				
+			
+			
+			try{
+				
+				 XSSFCell cell=wb1.getSheet("VslCreate").getRow(1).getCell(10);
+				 
+				 double number = (double)cell.getNumericCellValue();
+				
+				System.out.println("Printing number "+number);
+				
+				}catch(java. lang. NullPointerException exception)
+				{
+					
+					
+					System.out.println("default Printing number ");
+				}
+			
+		
+		
+		
 		
 		
 		//double data = DataProviderFactory.getExcel().getNumberData("bldata",0,1);
@@ -29,9 +66,9 @@ public class TestPage {
 		
 		//String str = NumberToTextConverter.toText(cell.getNumericCellValue())
 		
-		String data = NumberToTextConverter.toText(DataProviderFactory.getExcel().getNumberDataDouble("bldata",0,1));
+	//	String data = NumberToTextConverter.toText(DataProviderFactory.getExcel().getNumberDataDouble("bldata",0,1));
 		
-		System.out.println("Data is "+data);
+		//System.out.println("Data is "+data);
 		
 		/*loginPages home;
 		
@@ -100,6 +137,10 @@ public class TestPage {
 		
 		*/
 		
+		
+		
+			
+		
+	
 	}
-
 }

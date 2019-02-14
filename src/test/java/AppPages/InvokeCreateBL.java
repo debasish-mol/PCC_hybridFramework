@@ -20,8 +20,19 @@ public class InvokeCreateBL {
 	
 	@FindBy(id="btnProceed") WebElement proceed;
 	
+	@FindBy(xpath="//div[@id='divMessage']/div") WebElement errorMsg;
+	
+	
+	public String getErrorMsg()
+	{
+		String strErrorMsg = errorMsg.getText();
+		
+		return strErrorMsg;
+	}
+	
 	public void setBkgNo(String bkgNo)
 	{
+		bkg_no.clear();
 		
 		bkg_no.sendKeys(String.valueOf(bkgNo));
 		

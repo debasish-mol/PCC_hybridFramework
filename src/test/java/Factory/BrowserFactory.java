@@ -38,7 +38,19 @@ public class BrowserFactory {
 				//e.printStackTrace();
 				
 				
-			}
+			}  
+		/*
+		System.setProperty("webdriver.chrome.driver", ".\\Driver\\chromedriver.exe");
+		
+		driver = new ChromeDriver();
+		
+		try {
+			Thread.sleep(3000);
+		} catch (Exception e) {
+			
+			System.out.println("Exception type "+e.getMessage());
+		}
+		*/
 			
 			driver.manage().window().maximize();
 			

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test name="BookingTestScenario(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
       <class name="TestCases.CreateBookingFromContactTest">
         <methods>
@@ -9,11 +9,6 @@
           <include name="setup"/>
         </methods>
       </class> <!-- TestCases.CreateBookingFromContactTest -->
-      <class name="TestCases.BookingRouteApproveTest">
-        <methods>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- TestCases.BookingRouteApproveTest -->
     </classes>
-  </test> <!-- BookingTestScenario(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

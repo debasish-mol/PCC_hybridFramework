@@ -29,7 +29,7 @@ public class ExcelDataProvider {
 	
 	public ExcelDataProvider()
 	{
-		file = new File("D:\\all\\personal\\backup\\Selenium3\\SeleniumProgram\\com.Pcc.Net.Hybridframework\\ApplicationTestData\\AppData.xlsx");
+		file = new File(".\\ApplicationTestData\\AppData.xlsx");
 		
 		try {
 			
@@ -52,6 +52,156 @@ public class ExcelDataProvider {
 	}
 	
 	
+	public String getvalue(String path,String sheetName,int row,int col)
+	{
+		try {
+			fis = new FileInputStream(path);
+			
+		} catch (FileNotFoundException efileInput) {
+			
+			efileInput.printStackTrace();
+		}
+		
+		try {
+			wb = new XSSFWorkbook(fis);
+			
+		} catch (IOException eWorkBook) {
+			
+			eWorkBook.printStackTrace();
+		}
+		
+		try{
+			
+			String data = wb.getSheet(sheetName).getRow(row).getCell(col).toString();
+			
+			return data;
+			
+			}catch(java. lang. NullPointerException exception)
+			{
+				String data1 = "NoValue";
+				
+				return data1;
+			}
+		
+			
+	}
+	
+	
+	
+	public int getNumbervalue(String path,String sheetName,int row,int col)
+	
+	{  // XSSFCell cell=wb.getSheet(sheetName).getRow(row).getCell(col);
+		
+		try {
+			fis = new FileInputStream(path);
+			
+		} catch (FileNotFoundException efileInput) {
+			
+			efileInput.printStackTrace();
+		}
+		
+		try {
+			wb = new XSSFWorkbook(fis);
+			
+		} catch (IOException eWorkBook) {
+			
+			eWorkBook.printStackTrace();
+		}
+		
+		try{
+			
+			 XSSFCell cell=wb.getSheet(sheetName).getRow(row).getCell(col);
+			 
+			 int number = (int)cell.getNumericCellValue();
+			
+			return number;
+			
+			}catch(java. lang. NullPointerException exception)
+			{
+				
+				
+				return 0;
+			}
+		
+	
+	}
+		public double getdoublevalue(String path,String sheetName,int row,int col)
+	
+		{  // XSSFCell cell=wb.getSheet(sheetName).getRow(row).getCell(col);
+		
+		try {
+			fis = new FileInputStream(path);
+			
+		} catch (FileNotFoundException efileInput) {
+			
+			efileInput.printStackTrace();
+		}
+		
+		try {
+			wb = new XSSFWorkbook(fis);
+			
+		} catch (IOException eWorkBook) {
+			
+			eWorkBook.printStackTrace();
+		}
+		
+		try{
+			
+			 XSSFCell cell=wb.getSheet(sheetName).getRow(row).getCell(col);
+			 
+			 double number = (double)cell.getNumericCellValue();
+			
+			return number;
+			
+			}catch(java. lang. NullPointerException exception)
+			{
+				
+				
+				return 0;
+			}
+		
+	
+	}
+	
+	
+	public String getvalueDate(String path,String sheetName,int row,int col)
+	{
+		try {
+			fis = new FileInputStream(path);
+			
+		} catch (FileNotFoundException efileInput) {
+			
+			efileInput.printStackTrace();
+		}
+		
+		try {
+			wb = new XSSFWorkbook(fis);
+			
+		} catch (IOException eWorkBook) {
+			
+			eWorkBook.printStackTrace();
+		}
+		
+		try{
+			
+			XSSFCell cell=wb.getSheet(sheetName).getRow(row).getCell(col);
+			
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+			
+			String data = dateFormat.format(cell.getDateCellValue());
+			
+			return data;
+			
+			}catch(java. lang. NullPointerException exception)
+			{
+				String data1 = "NoDate";
+				
+				return data1;
+			}
+		
+			
+	}
+	
 	public String getData(int sheetIndex,int row,int col)
 	{
 		
@@ -73,9 +223,20 @@ public class ExcelDataProvider {
 	public String getStringData(String sheetName,int row,int col)
 	
 	{
+		try{
+		
 		String data = wb.getSheet(sheetName).getRow(row).getCell(col).toString();
 		
 		return data;
+		
+		}catch(java. lang. NullPointerException exception)
+		{
+			String data1 = "NoValue";
+			
+			return data1;
+		}
+		
+		
 	}
 	
 		public String getDateData(String sheetName,int row,int col)
