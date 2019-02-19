@@ -39,20 +39,34 @@ public class loginPages {
 		
 		password.sendKeys(DataProviderFactory.getExcel().getData(0, 0, 1));
 		
-		login.click();
+		login.click(); 
 		
-		
-		if(!driver.getTitle().contains("Index"))
+		/*
+		for(int i = 0;i<20;i++)
 		{
-			System.out.println("WAIT");
-			try {
-				Thread.sleep(15000);
-			} catch (InterruptedException eGetTittle) {
+			if(!driver.getTitle().contains("Index"))
+			{
+				try {
+					
+					System.out.println("Page is still Loading. Please wait");
+					
+					Thread.sleep(1000);
 				
-				eGetTittle.printStackTrace();
+				   } catch (InterruptedException eIndex)
+						{
+					
+					   eIndex.printStackTrace();
+						}
+								
+					
+				}
+			else {
+				break;
 			}
+		
 		}
-		else System.out.println(driver.getTitle());
+		
+		*/
 		
 		
 	}

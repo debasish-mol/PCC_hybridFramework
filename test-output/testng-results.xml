@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="75248" started-at="2019-02-14T11:14:43Z" finished-at="2019-02-14T11:15:58Z">
+  <suite name="Suite" duration-ms="147154" started-at="2019-02-18T10:49:47Z" finished-at="2019-02-18T10:52:14Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="75248" started-at="2019-02-14T11:14:43Z" finished-at="2019-02-14T11:15:58Z">
-      <class name="TestCases.CreateBookingFromContactTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:TestCases.CreateBookingFromContactTest@1fdc050]" name="setup" is-config="true" duration-ms="27420" started-at="2019-02-14T16:44:43Z" finished-at="2019-02-14T16:45:10Z">
+    <test name="BookingTestScenario" duration-ms="147154" started-at="2019-02-18T10:49:47Z" finished-at="2019-02-18T10:52:14Z">
+      <class name="TestCases.BookingRouteApproveTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:TestCases.BookingRouteApproveTest@3bd550]" name="setup" is-config="true" duration-ms="15044" started-at="2019-02-18T16:21:46Z" finished-at="2019-02-18T16:22:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="CreateBooking()[pri:0, instance:TestCases.CreateBookingFromContactTest@1fdc050]" name="CreateBooking" duration-ms="47793" started-at="2019-02-14T16:45:10Z" finished-at="2019-02-14T16:45:58Z">
+        <test-method status="PASS" signature="BookingRouteApproval()[pri:0, instance:TestCases.BookingRouteApproveTest@3bd550]" name="BookingRouteApproval" duration-ms="12941" started-at="2019-02-18T16:22:01Z" finished-at="2019-02-18T16:22:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- BookingRouteApproval -->
+      </class> <!-- TestCases.BookingRouteApproveTest -->
+      <class name="TestCases.CreateBookingFromContactTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:TestCases.CreateBookingFromContactTest@3a8624]" name="setup" is-config="true" duration-ms="36587" started-at="2019-02-18T16:19:47Z" finished-at="2019-02-18T16:20:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="CreateBooking()[pri:0, instance:TestCases.CreateBookingFromContactTest@3a8624]" name="CreateBooking" duration-ms="82563" started-at="2019-02-18T16:20:23Z" finished-at="2019-02-18T16:21:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CreateBooking -->
       </class> <!-- TestCases.CreateBookingFromContactTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- BookingTestScenario -->
+  </suite> <!-- Suite -->
 </testng-results>

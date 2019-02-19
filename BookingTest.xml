@@ -2,9 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
   <test name="BookingTestScenario">
-    <classes>
+        <classes>
       <class name="TestCases.CreateBookingFromContactTest"/>
-      <class name="TestCases.BookingRouteApproveTest"/>
-    </classes>
+      </classes>
   </test> <!-- BookingTestScenario -->
 </suite> <!-- Suite -->

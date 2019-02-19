@@ -16,6 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.sun.jna.platform.win32.OaIdl.SYSKIND;
 
 import Factory.DataProviderFactory;
+import Utility.Helper;
 
 public class BookingEntryPage
 {
@@ -164,7 +165,10 @@ public class BookingEntryPage
 	{
 		Add_leg.click();
 		
-		voyage_search.click();
+		
+		WebElement voyageSearch = Helper.isElementPresent(driver,"//input[@id='btnPopup1']",15);
+		
+		voyageSearch.click();
 		
 		//WebDriverWait waitVoyageSeach = new WebDriverWait(driver,10);
 		
