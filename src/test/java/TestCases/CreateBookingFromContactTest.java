@@ -214,7 +214,7 @@ public WebDriver driver;
 			System.out.println("Exception at Voyage search "+eBookingSave.getMessage());
 		}
 		
-		WebDriverWait waitBookingLog = new WebDriverWait(driver,10);
+		WebDriverWait waitBookingLog = new WebDriverWait(driver,30);
 		
 		waitBookingLog.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='btnBkgLog']")));
 		
